@@ -11,3 +11,8 @@ CREATE TABLE public.vet_clinic
 
 ALTER TABLE IF EXISTS public.vet_clinic
     OWNER to postgres;
+
+-- Create a mew species column
+
+ALTER TABLE IF EXISTS public.animals
+    ADD COLUMN species text;
