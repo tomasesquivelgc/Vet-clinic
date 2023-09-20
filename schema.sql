@@ -6,6 +6,7 @@ CREATE TABLE public.vet_clinic
     escape_attempts integer NOT NULL,
     neutered boolean NOT NULL,
     weight_kg numeric NOT NULL,
+    species text,
     PRIMARY KEY ("ID")
 );
 
