@@ -6,9 +6,13 @@ CREATE TABLE public.vet_clinic
     escape_attempts integer NOT NULL,
     neutered boolean NOT NULL,
     weight_kg numeric NOT NULL,
-    species text,
     PRIMARY KEY ("ID")
 );
 
 ALTER TABLE IF EXISTS public.vet_clinic
     OWNER to postgres;
+
+-- Create a mew species column
+
+ALTER TABLE IF EXISTS public.animals
+    ADD COLUMN species text;
