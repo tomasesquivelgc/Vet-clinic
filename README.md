@@ -180,7 +180,7 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Owner's Data**
+- [X] **Owner's Data**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
