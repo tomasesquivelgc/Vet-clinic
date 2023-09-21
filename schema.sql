@@ -21,7 +21,7 @@ ALTER TABLE IF EXISTS public.animals
 CREATE TABLE public.owners
 (
     id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 ),
-    "full-name" text NOT NULL,
+    full_name text NOT NULL,
     age integer NOT NULL,
     PRIMARY KEY (id)
 );
