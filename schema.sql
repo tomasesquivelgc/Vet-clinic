@@ -64,3 +64,33 @@ ADD CONSTRAINT fk_owner_id
     FOREIGN KEY (owner_id)
     REFERENCES public.owners (id);
     
+-- create vets table
+CREATE TABLE public.vets
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 ),
+    full_name text NOT NULL,
+    age integer NOT NULL,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE IF EXISTS public.vets
+    OWNER to postgres;
+
+-- create specializations table
+CREATE TABLE specializations (
+species_id INT NOT NULL,
+vets_id INT NOT NULL,
+PRIMARY KEY (species_id, vets_id),
+FOREIGN KEY (species_id) REFERENCES species(id),
+FOREIGN KEY (vets_id) REFERENCES vets(id)
+);
+
+-- create visits table
+CREATE TABLE visits (
+    animals_id INT NOT NULL,
+    vets_id INT NOT NULL,
+    date_of_visit DATE NOT NULL,
+    PRIMARY KEY (animals_id, vets_id, date_of_visit),
+    FOREIGN KEY (animals_id) REFERENCES public.animals ("ID"),
+    FOREIGN KEY (vets_id) REFERENCES public.vets (id)
+);
