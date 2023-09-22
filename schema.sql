@@ -64,6 +64,8 @@ ADD CONSTRAINT fk_owner_id
     FOREIGN KEY (owner_id)
     REFERENCES public.owners (id);
     
+-- Day 3
+
 -- create vets table
 CREATE TABLE public.vets
 (
