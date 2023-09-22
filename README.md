@@ -1,5 +1,3 @@
-# curriculum-databases-projects-template
-
 ## Getting Started
 
 <a name="readme-top"></a>
