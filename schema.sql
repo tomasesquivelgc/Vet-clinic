@@ -96,3 +96,9 @@ CREATE TABLE visits (
     FOREIGN KEY (animals_id) REFERENCES public.animals ("ID"),
     FOREIGN KEY (vets_id) REFERENCES public.vets (id)
 );
+
+
+-- Week 2 Day 1
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
