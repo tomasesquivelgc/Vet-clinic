@@ -104,3 +104,4 @@ Add COLUMN email;
 CREATE INDEX email_index ON owners(email);
 
 CREATE INDEX visits_vet_id_covering_idx ON visits(vet_id) INCLUDE (id, animals_id, date_of_visit);
+
