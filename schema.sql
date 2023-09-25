@@ -96,3 +96,11 @@ CREATE TABLE visits (
     FOREIGN KEY (animals_id) REFERENCES public.animals ("ID"),
     FOREIGN KEY (vets_id) REFERENCES public.vets (id)
 );
+
+CREATE INDEX animal_id_index ON visits(animals_id);
+CREATE INDEX vet_id_index ON visits(vets_id);
+ALTER TABLE owners
+Add COLUMN email;
+CREATE INDEX email_index ON owners(email);
+
+CREATE INDEX visits_vet_id_covering_idx ON visits(vet_id) INCLUDE (id, animals_id, date_of_visit);
