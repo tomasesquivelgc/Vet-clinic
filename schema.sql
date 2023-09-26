@@ -97,11 +97,22 @@ CREATE TABLE visits (
     FOREIGN KEY (vets_id) REFERENCES public.vets (id)
 );
 
+
+-- Week 2 Day 1
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- Change primary key to allow multiple vet visits
+ALTER TABLE IF EXISTS public.visits
+    ADD COLUMN id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 );
+ALTER TABLE IF EXISTS public.visits DROP CONSTRAINT IF EXISTS visits_pkey;
+
+ALTER TABLE IF EXISTS public.visits
+    ADD CONSTRAINT id PRIMARY KEY (id);
+
+-- improve performance by creating indexes
 CREATE INDEX animal_id_index ON visits(animals_id);
 CREATE INDEX vet_id_index ON visits(vets_id);
-ALTER TABLE owners
-Add COLUMN email;
 CREATE INDEX email_index ON owners(email);
-
-CREATE INDEX visits_vet_id_covering_idx ON visits(vet_id) INCLUDE (id, animals_id, date_of_visit);
-
+CREATE INDEX visits_vet_id_covering_idx ON visits(vets_id) INCLUDE (id, animals_id, date_of_visit);
