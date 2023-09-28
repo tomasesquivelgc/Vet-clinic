@@ -35,6 +35,14 @@ CREATE TABLE public.invoices (
   medical_history__id INTEGER REFERENCES medical_histories(id),
 );
 
+-- many to many relationship table between medical_histories and treatments
+
+CREATE TABLE public.treatment_histories (
+  id INTEGER PRIMARY KEY,
+  medical_history__id INTEGER REFERENCES medical_histories(id),
+  treatment_id INTEGER REFERENCES treatments(id),
+);
+
 CREATE INDEX ON medical_histories (patient_id);
 CREATE INDEX ON invoices (medical_history_id);
 CREATE INDEX ON invoice_items (invoice_id);
